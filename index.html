@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>WoT Capability Schemas - Mozilla IoT</title>
+    <link rel="icon" href="images/icon.png" type="image/png" />
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/prism.css" />
+    <script src="js/prism.js"></script>
+  </head>
+  <body>
+    <img id="wordmark" src="images/wordmark.svg" alt="Mozilla IoT" />
+    <h1 class="title">WoT Capability Schemas</h1>
+    <h2 class="subtitle">iot.mozilla.org/schemas</h2>
+    <h1 id="introduction">Introduction</h1>
+    <p>This web page describes a repository of Web of Things capability schemas
+      to be used as optional semantic markup in <a href="https://iot.mozilla.org/wot/#web-thing-description">
+      Web Thing Descriptions</a>.</p>
+    <p>To use a schema from this repository, a Thing Description must define a <code>@context</code> of "https://iot.mozilla.org/schemas", define one or more device capability types as a
+    top level <code>@type</code> array and define at least the required properties, actions and
+     events for that capability with an appropriate <code>@type</code> annotation.</p>
+      <h2>Example</h2>
+      <pre><code class="language-json">{
+  "@context": "https://iot.mozilla.org/schemas/",
+  "@type": ["Light", "OnOffSwitch", "MultiLevelSwitch"],
+  "name":"My Lamp",
+  "description": "A web connected lamp",
+  "properties": {
+    "on": {
+      "@type": "OnOffProperty",
+      "type": "boolean",
+      "description": "Whether the lamp is turned on",
+      "href": "/things/lamp/properties/on"
+    },
+    "level" : {
+      "@type": "LevelProperty",
+      "type": "number",
+      "description": "The level of light from 0-100",
+      "minimum" : 0,
+      "maximum" : 100,
+      "href": "/things/lamp/properties/level"
+    }
+  },
+  "actions": {
+    "fade": {
+      "@type": "FadeAction",
+      "description": "Fade the lamp to a given level",
+      "input": {
+        "type": "object",
+        "properties": {
+          "level": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 100
+          },
+          "duration": {
+            "type": "number",
+            "unit": "milliseconds"
+          }
+        }
+      },
+      "href": "/things/lamp/actions/fade"
+    }
+  },
+  "events": {
+    "overheated": {
+      "@type": "OverheatedEvent",
+      "type": "number",
+      "unit": "celsius",
+      "description": "The lamp has exceeded its safe operating temperature",
+      "href": "/things/lamp/events/overheated"
+    }
+  },
+  "links": [
+    {
+      "rel": "properties",
+      "href": "/things/lamp/properties"
+    },
+    {
+      "rel": "actions",
+      "href": "/things/lamp/actions"
+    },
+    {
+      "rel": "events",
+      "href": "/things/lamp/events"
+    },
+    {
+      "rel": "alternate",
+      "href": "wss://mywebthingserver.com/things/lamp"
+    },
+    {
+      "rel": "alternate",
+      "mediaType": "text/html",
+      "href": "/things/lamp"
+    }
+  ]
+}</code></pre>
+    <h1>Contents</h1>
+    <ul>
+      <li><strong><a href="#capabilities">Capabilities</a></strong></li>
+      <ul>
+        <li><a href="#OnOffSwitch">OnOffSwitch</a></li>
+        <li><a href="#MultiLevelSwitch">MultiLevelSwitch</a></li>
+        <li><a href="#BinarySensor">BinarySensor</a></li>
+        <li><a href="#MultiLevelSensor">MultiLevelSensor</a></li>
+        <li><a href="#ColorControl">ColorControl</a></li>
+        <li><a href="#EnergyMonitor">EnergyMonitor</a></li>
+        <li><a href="#SmartPlug">SmartPlug</a></li>
+        <li><a href="#Light">Light</a></li>
+      </ul>
+      <li><strong><a href="#properties">Properties</a></strong></li>
+      <ul>
+        <li><a href="#BooleanProperty">BooleanProperty</a></li>
+        <li><a href="#OnOffProperty">OnOffProperty</a></li>
+        <li><a href="#LevelProperty">LevelProperty</a></li>
+        <li><a href="#BrightnessProperty">BrightnessProperty</a></li>
+        <li><a href="#ColorProperty">ColorProperty</a></li>
+        <li><a href="#ColorTemperatureProperty">ColorTemperatureProperty</a></li>
+        <li><a href="#InstantaneousPowerProperty">InstantaneousPowerProperty</a></li>
+        <li><a href="#CurrentProperty">CurrentProperty</a></li>
+        <li><a href="#VoltageProperty">VoltageProperty</a></li>
+        <li><a href="#FrequencyProperty">FrequencyProperty</a></li>
+      </ul>
+      <li><strong><a href="#actions">Actions</a></strong></li>
+      <ul>
+        <li><a href="#ToggleAction">ToggleAction</a></li>
+        <li><a href="#FadeAction">FadeAction</a></li>
+      </ul>
+      <li><strong><a href="#events">Events</a></strong></li>
+      <ul>
+        <li><a href="#OverheatedEvent">OverheatedEvent</a></li>
+      </ul>
+    </ul>
+    <section id="capabilities">
+      <h1>Capabilities</h1>
+      <section id="OnOffSwitch">
+        <h2>OnOffSwitch</h2>
+        <p>A simple switch which has an on state and an off state.</p>
+        <h3>Properties<h3>
+          <table>
+            <tr>
+              <th>Type</th>
+              <th>Required</th>
+            </tr>
+            <tr>
+              <td><a href="#OnOffProperty">OnOffProperty</a></td>
+              <td>Yes</td>
+            </tr>
+          </table>
+        <h3>Actions</h3>
+        <table>
+          <tr>
+            <th>Type</th>
+            <th>Required</th>
+          </tr>
+          <tr>
+            <td><a href="#ToggleAction">ToggleAction</a></td>
+            <td>No</td>
+          </tr>
+        </table>
+        <h3>Events</h3>
+        <p>None.</p>
+      </section>
+      <section id="MultiLevelSwitch">
+        <h2>MultiLevelSwitch</h2>
+        <p>A fader or dimmer switch with a range of levels.</p>
+        <h3>Properties<h3>
+          <table>
+            <tr>
+              <th>Type</th>
+              <th>Required</th>
+            </tr>
+            <tr>
+              <td><a href="#LevelProperty">LevelProperty</a></td>
+              <td>Yes</td>
+            </tr>
+          </table>
+        <h3>Actions</h3>
+        <table>
+          <tr>
+            <th>Type</th>
+            <th>Required</th>
+          </tr>
+          <tr>
+            <td><a href="#FadeAction">FadeAction</a></td>
+            <td>No</td>
+          </tr>
+        </table>
+        <h3>Events</h3>
+        <p>None.</p>
+      </section>
+      <section id="BinarySensor">
+        <h2>BinarySensor</h2>
+        <p>A simple sensor with an active (true) and inactive (false) state.</p>
+        <h3>Properties<h3>
+          <table>
+            <tr>
+              <th>Type</th>
+              <th>Required</th>
+            </tr>
+            <tr>
+              <td><a href="#BooleanProperty">BooleanProperty</a></td>
+              <td>Yes</td>
+            </tr>
+          </table>
+        <h3>Actions</h3>
+        <p>None.</p>
+        <h3>Events</h3>
+        <p>None.</p>
+      </section>
+      <section id="MultiLevelSensor">
+        <h2>MultiLevelSensor</h2>
+        <p>A sensor with a range of values.</p>
+        <h3>Properties<h3>
+          <table>
+            <tr>
+              <th>Type</th>
+              <th>Required</th>
+            </tr>
+            <tr>
+              <td><a href="#LevelProperty">LeveLProperty</a></td>
+              <td>Yes</td>
+            </tr>
+          </table>
+        <h3>Actions</h3>
+        <p>None.</p>
+        <h3>Events</h3>
+        <p>None.</p>
+      </section>
+      <section id="ColorControl">
+        <h2>ColorControl</h2>
+        <p>The ability to set a colour, e.g. for a coloured light.</p>
+        <h3>Properties<h3>
+          <table>
+            <tr>
+              <th>Type</th>
+              <th>Required</th>
+            </tr>
+            <tr>
+              <td><a href="#ColorProperty">ColorProperty</a></td>
+              <td>Yes</td>
+            </tr>
+            <tr>
+              <td><a href="#ColorTemperatureProperty">ColorTemperatureProperty</a></td>
+              <td>No</td>
+            </tr>
+          </table>
+        <h3>Actions</h3>
+        <p>None.</p>
+        <h3>Events</h3>
+        <p>None.</p>
+      </section>
+      <section id="EnergyMonitor">
+        <h2>EnergyMonitor</h2>
+        <p>Capability to monitor current energy usage.</p>
+        <h3>Properties<h3>
+          <table>
+            <tr>
+              <th>Type</th>
+              <th>Required</th>
+            </tr>
+            <tr>
+              <td><a href="#InstantaneousPowerProperty">InstantaneousPowerProperty</a></td>
+              <td>Yes</td>
+            </tr>
+            <tr>
+              <td><a href="#VoltageProperty">VoltageProperty</a></td>
+              <td>No</td>
+            </tr>
+            <tr>
+              <td><a href="#CurrentProperty">CurrentProperty</a></td>
+              <td>No</td>
+            </tr>
+            <tr>
+              <td><a href="#FrequencyProperty">FrequencyProperty</a></td>
+              <td>No</td>
+            </tr>
+          </table>
+        <h3>Actions</h3>
+        <p>None.</p>
+        <h3>Events</h3>
+        <p>None.</p>
+      </section>
+      <section id="SmartPlug">
+        <h2>SmartPlug</h2>
+        <p>A plug or mains outlet which can control power output and optionally monitor energy usage.</p>
+        <h3>Properties<h3>
+          <table>
+            <tr>
+              <th>Type</th>
+              <th>Required</th>
+            </tr>
+            <tr>
+              <td><a href="#OnOffProperty">OnOffProperty</a></td>
+              <td>Yes</td>
+            </tr>
+            <tr>
+              <td><a href="#LevelProperty">LeveLProperty</a></td>
+              <td>No</td>
+            </tr>
+            <tr>
+              <td><a href="#InstantaneousPowerProperty">InstantaneousPowerProperty</a></td>
+              <td>No</td>
+            </tr>
+            <tr>
+              <td><a href="#VoltageProperty">VoltageProperty</a></td>
+              <td>No</td>
+            </tr>
+            <tr>
+              <td><a href="#CurrentProperty">CurrentProperty</a></td>
+              <td>No</td>
+            </tr>
+            <tr>
+              <td><a href="#FrequencyProperty">FrequencyProperty</a></td>
+              <td>No</td>
+            </tr>
+          </table>
+        <h3>Actions</h3>
+        <table>
+          <tr>
+            <th>Type</th>
+            <th>Required</th>
+          </tr>
+          <tr>
+            <td><a href="#ToggleAction">ToggleAction</a></td>
+            <td>No</td>
+          </tr>
+          <tr>
+            <td><a href="#FadeAction">FadeAction</a></td>
+            <td>No</td>
+          </tr>
+        </table>
+        <h3>Events</h3>
+        <p>None.</p>
+      </section>
+      <section id="Light">
+        <h2>Light</h2>
+        <p>A device which emits light, can be turned on and off and optionally
+          have its brightness, colour and colour temperature controlled.</p>
+        <h3>Properties<h3>
+          <table>
+            <tr>
+              <th>Type</th>
+              <th>Required</th>
+            </tr>
+            <tr>
+              <td><a href="#OnOffProperty">OnOffProperty</a></td>
+              <td>Yes</td>
+            </tr>
+            <tr>
+              <td><a href="#BrightnessProperty">BrightnessProperty</a></td>
+              <td>No</td>
+            </tr>
+            <tr>
+              <td><a href="#ColorProperty">ColorProperty</a></td>
+              <td>No</td>
+            </tr>
+            <tr>
+              <td><a href="#ColorTemperatureProperty">ColorTemperatureProperty</a></td>
+              <td>No</td>
+            </tr>
+          </table>
+        <h3>Actions</h3>
+        <table>
+          <tr>
+            <th>Type</th>
+            <th>Required</th>
+          </tr>
+          <tr>
+            <td><a href="#ToggleAction">ToggleAction</a></td>
+            <td>No</td>
+          </tr>
+          <tr>
+            <td><a href="#FadeAction">FadeAction</a></td>
+            <td>No</td>
+          </tr>
+        </table>
+        <h3>Events</h3>
+        <table>
+          <tr>
+            <th>Type</th>
+            <th>Required</th>
+          </tr>
+          <tr>
+            <td><a href="#OverheatedEvent">OverheatedEvent</a></td>
+            <td>No</td>
+          </tr>
+        </table>
+      </section>
+    </section>
+    <section id="properties">
+      <h1>Properties</h1>
+      <section id="BooleanProperty">
+        <h2>BooleanProperty</h2>
+        <table>
+          <tr>
+            <th>type</th>
+            <td>boolean</td>
+          </tr>
+        </table>
+      </section>
+      <section id="OnOffProperty">
+        <h2>OnOffProperty</h2>
+          <table>
+            <tr>
+              <th>type</th>
+              <td>boolean</td>
+            </tr>
+          </table>
+          <p><strong>Note:</strong> An <code>OnOffProperty</code> is like a <code>BooleanProperty</code>, but
+            with the added semantics that <code>true</code> means "on" and
+            <code>false</code> means "off".</p>
+      </section>
+      <section id="LevelProperty">
+        <h2>LevelProperty</h2>
+        <table>
+          <tr>
+            <th>type</th>
+            <td>number</td>
+          </tr>
+          <tr>
+            <th>minimum</th>
+            <td>(optional)</td>
+          </tr>
+          <tr>
+            <th>maximum</th>
+            <td>(optional)</td>
+          </tr>
+          <tr>
+            <th>unit</th>
+            <td>(optional)</td>
+          </tr>
+        </table>
+      </section>
+      <section id="BrightnessProperty">
+        <h2>BrightnessProperty</h2>
+        <table>
+          <tr>
+            <th>type</th>
+            <td>number</td>
+          </tr>
+          <tr>
+            <th>minimum</th>
+            <td>0</td>
+          </tr>
+          <tr>
+            <th>maximum</th>
+            <td>100</td>
+          </tr>
+          <tr>
+            <th>unit</th>
+            <td>percent</td>
+          </tr>
+        </table>
+      </section>
+      <section id="ColorProperty">
+        <h2>ColorProperty</h2>
+        <table>
+          <tr>
+            <th>type</th>
+            <td>string (hexidecimal RGB color code, e.g. #FF0000)</td>
+          </tr>
+        </table>
+      </section>
+      <section id="ColorTemperatureProperty">
+        <h2>ColorTemperatureProperty</h2>
+        <table>
+          <tr>
+            <th>type</th>
+            <td>number</td>
+          </tr>
+          <tr>
+            <th>unit</th>
+            <td>kelvin</td>
+          </tr>
+        </table>
+      </section>
+      <section id="InstantaneousPowerProperty">
+        <h2>InstantaneousPowerProperty</h2>
+        <table>
+          <tr>
+            <th>type</th>
+            <td>number</td>
+          </tr>
+          <tr>
+            <th>unit</th>
+            <td>watt</td>
+          </tr>
+        </table>
+      </section>
+      <section id="CurrentProperty">
+        <h2>CurrentProperty</h2>
+        <table>
+          <tr>
+            <th>type</th>
+            <td>number</td>
+          </tr>
+          <tr>
+            <th>unit</th>
+            <td>ampere</td>
+          </tr>
+        </table>
+      </section>
+      <section id="VoltageProperty">
+        <h2>VoltageProperty</h2>
+        <table>
+          <tr>
+            <th>type</th>
+            <td>number</td>
+          </tr>
+          <tr>
+            <th>unit</th>
+            <td>volt</td>
+          </tr>
+        </table>
+      </section>
+      <section id="FrequencyProperty">
+        <h2>FrequencyProperty</h2>
+        <table>
+          <tr>
+            <th>type</th>
+            <td>number</td>
+          </tr>
+          <tr>
+            <th>unit</th>
+            <td>hertz</td>
+          </tr>
+        </table>
+      </section>
+    </section>
+    </section>
+    <section id="actions">
+      <h1>Actions</h1>
+      <section id="ToggleAction">
+        <h2>ToggleAction</h2>
+        <p>Toggles a boolean state on and off.</p>
+        <h3>input</h3>
+        <p>None.</p>
+      </section>
+      <section id="FadeAction">
+        <h2>FadeAction</h2>
+        <p>Fades a multi level switch to a given level over a given duration.</p>
+        <h3>input</h3>
+        <table>
+          <tr>
+            <th>type</th>
+            <td>object</td>
+          </tr>
+          <tr>
+            <th>properties</th>
+            <td>
+              <ul>
+                <li>level</li>
+                <ul>
+                  <li><strong>type:</strong> number</li>
+                  <li><strong>unit:</strong> percent</li>
+                  <li><strong>minimum:</strong> 0</li>
+                  <li><strong>maximum:</strong> 100</li>
+                </ul>
+                <li>duration</li>
+                <ul>
+                  <li><strong>type:</strong> number</li>
+                  <li><strong>unit:</strong> second</li>
+                </ul>
+              </ul>
+            </td>
+          </tr>
+        </table>
+      </section>
+    </section>
+    <section id="events">
+      <h1>Events</h1>
+      <section id="OverheatedEvent">
+        <h2>OverheatedEvent</h2>
+        <p>Indicates a device has exceeded its safe operating temperature.</p>
+        <h3>data</h3>
+        <table>
+          <tr>
+            <th>type</th>
+            <td>number</td>
+          </tr>
+          <tr>
+            <th>unit</th>
+            <td>degree celcius</td>
+          </tr>
+        </table>
+      </section>
+    </section>
+  </body>
+</html>
