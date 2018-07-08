@@ -115,6 +115,7 @@
         <li><a href="#PushButton">PushButton</a></li>
         <li><a href="#Camera">Camera</a></li>
         <li><a href="#VideoCamera">VideoCamera</a></li>
+        <li><a href="#MediaPlayer">MediaPlayer</a></li>
       </ul>
       <li><strong><a href="#properties">Properties</a></strong></li>
       <ul>
@@ -135,11 +136,23 @@
         <li><a href="#TemperatureProperty">TemperatureProperty</a></li>
         <li><a href="#ImageProperty">ImageProperty</a></li>
         <li><a href="#VideoProperty">VideoProperty</a></li>
+        <li><a href="#VolumeProperty">VolumeProperty</a></li>
+        <li><a href="#PlayingProperty">PlayingProperty</a></li>
+        <li><a href="#ShuffleProperty">ShuffleProperty</a></li>
+        <li><a href="#RepeatProperty">RepeatProperty</a></li>
+        <li><a href="#ProgressProperty">ProgressProperty</a></li>
+        <li><a href="#TrackProperty">TrackProperty</a></li>
+        <li><a href="#ArtistProperty">ArtistProperty</a></li>
+        <li><a href="#AlbumProperty">AlbumProperty</a></li>
+        <li><a href="#PreviewURLProperty">PreviewURLProperty</a></li>
       </ul>
       <li><strong><a href="#actions">Actions</a></strong></li>
       <ul>
         <li><a href="#ToggleAction">ToggleAction</a></li>
         <li><a href="#FadeAction">FadeAction</a></li>
+        <li><a href="#StopAction">StopAction</a></li>
+        <li><a href="#PreviousAction">PreviousAction</a></li>
+        <li><a href="#NextAction">NextAction</a></li>
       </ul>
       <li><strong><a href="#events">Events</a></strong></li>
       <ul>
@@ -579,6 +592,82 @@
         <h3>Events</h3>
         <p>None.</p>
       </section>
+      <section id="MediaPlayer">
+        <h2>MediaPlayer</h2>
+        <p>A device that displays media.</p>
+        <h3>Properties</h3>
+          <table>
+            <tr>
+              <th>Type</th>
+              <th>Read-Only</th>
+              <th>Required</th>
+            </tr>
+            <tr>
+              <td><a href="#VolumeProperty">VolumeProperty</a></td>
+              <td>No</td>
+              <td>Yes</td>
+            </tr>
+            <tr>
+              <td><a href="#PlayingProperty">PlayingProperty</a></td>
+              <td>No</td>
+              <td>Yes</td>
+            </tr>
+            <tr>
+              <td><a href="#ShuffleProperty">ShuffleProperty</a></td>
+              <td>No</td>
+              <td>No</td>
+            </tr>
+            <tr>
+              <td><a href="#RepeatProperty">RepeatProperty</a></td>
+              <td>No</td>
+              <td>No</td>
+            </tr>
+            <tr>
+              <td><a href="#ProgressProperty">ProgressProperty</a></td>
+              <td>Yes</td>
+              <td>No</td>
+            </tr>
+            <tr>
+              <td><a href="#TrackProperty">TrackProperty</a></td>
+              <td>Yes</td>
+              <td>No</td>
+            </tr>
+            <tr>
+              <td><a href="#ArtistProperty">ArtistProperty</a></td>
+              <td>Yes</td>
+              <td>No</td>
+            </tr>
+            <tr>
+              <td><a href="#AlbumProperty">AlbumProperty</a></td>
+              <td>Yes</td>
+              <td>No</td>
+            </tr>
+            <tr>
+              <td><a href="#PreviewURLProperty">PreviewURLProperty</a></td>
+              <td>Yes</td>
+              <td>No</td>
+            </tr>
+          </table>
+        <h3>Actions</h3>
+        <table>
+          <tr>
+            <th>Type</th>
+            <th>Required</th>
+          </tr>
+          <tr>
+            <td><a href="#StopAction">StopAction</a></td>
+            <td>No</td>
+          </tr>
+          <tr>
+            <td><a href="#PreviousAction">PreviousAction</a></td>
+            <td>No</td>
+          </tr>
+          <tr>
+            <td><a href="#NextAction">NextAction</a></td>
+            <td>No</td>
+          </tr>
+        </table>
+      </section>
     </section>
     <section id="properties">
       <h1>Properties</h1>
@@ -800,6 +889,103 @@
         </table>
         <p><strong>Note:</strong> The primitive <code>type</code> of a <code>VideoProperty</code> is <code>null</code> or <code>undefined</code> (omitted), but it must provide a <code>mediaType</code> in one or more <a href="https://iot.mozilla.org/wot/#link-object">link relations</a> which link to binary representations of the video property resource.</p>
       </section>
+      <section id="VolumeProperty">
+        <h2>VolumeProperty</h2>
+        <table>
+          <tr>
+            <th>type</th>
+            <td>integer</td>
+          </tr>
+          <tr>
+            <th>unit</th>
+            <td>percent</td>
+          </tr>
+        </table>
+      </section>
+      <section id="PlayingProperty">
+        <h2>PlayingProperty</h2>
+        <table>
+          <tr>
+            <th>type</th>
+            <td>boolean</td>
+          </tr>
+        </table>
+      </section>
+      <section id="ShuffleProperty">
+        <h2>ShuffleProperty</h2>
+        <table>
+          <tr>
+            <th>type</th>
+            <td>boolean</td>
+          </tr>
+        </table>
+      </section>
+      <section id="RepeatProperty">
+        <h2>RepeatProperty</h2>
+        <table>
+          <tr>
+            <th>type</th>
+            <td>string</td>
+          </tr>
+          <tr>
+            <th>enum</th>
+            <td>Off,One,All</td>
+          </tr>
+        </table>
+      </section>
+      <section id="ProgressProperty">
+        <h2>ProgressProperty</h2>
+        <table>
+          <tr>
+            <th>type</th>
+            <td>integer</td>
+          </tr>
+          <tr>
+            <th>unit</th>
+            <td>seconds</td>
+          </tr>
+          <tr>
+            <th>max</th>
+            <td>Seconds in the current Track</td>
+          </tr>
+        </table>
+      </section>
+      <section id="TrackProperty">
+        <h2>TrackProperty</h2>
+        <table>
+          <tr>
+            <th>type</th>
+            <td>string</td>
+          </tr>
+        </table>
+      </section>
+      <section id="ArtistProperty">
+        <h2>ArtistProperty</h2>
+        <table>
+          <tr>
+            <th>type</th>
+            <td>string</td>
+          </tr>
+        </table>
+      </section>
+      <section id="AlbumProperty">
+        <h2>AlbumProperty</h2>
+        <table>
+          <tr>
+            <th>type</th>
+            <td>string</td>
+          </tr>
+        </table>
+      </section>
+      <section id="PreviewURLProperty">
+        <h2>PreviewURLProperty</h2>
+        <table>
+          <tr>
+            <th>type</th>
+            <td>string</td>
+          </tr>
+        </table>
+      </section>
     </section>
     <section id="actions">
       <h1>Actions</h1>
@@ -839,6 +1025,24 @@
             </td>
           </tr>
         </table>
+      </section>
+      <section id="StopAction">
+        <h2>StopAction</h2>
+        <p>Stops current playback on the thing.</p>
+        <h3>input</h3>
+        <p>None.</p>
+      </section>
+      <section id="PreviousAction">
+        <h2>PreviousAction</h2>
+        <p>Plays the previous item in the playback queue.</p>
+        <h3>input</h3>
+        <p>None.</p>
+      </section>
+      <section id="NextAction">
+        <h2>NextAction</h2>
+        <p>Plays the next item in the playback queue.</p>
+        <h3>input</h3>
+        <p>None.</p>
       </section>
     </section>
     <section id="events">
