@@ -18,11 +18,11 @@
       Web Thing Descriptions</a>.</p>
     <p>To use a schema from this repository, a Thing Description must define a <code>@context</code> of "https://iot.mozilla.org/schemas", define one or more device capability types as a
     top level <code>@type</code> array and define at least the required properties, actions and
-     events for that capability with an appropriate <code>@type</code> annotation.</p>
+     events for those capabilities with an appropriate <code>@type</code> annotation.</p>
       <h2>Example</h2>
       <pre><code class="language-json">{
   "@context": "https://iot.mozilla.org/schemas/",
-  "@type": ["Light", "OnOffSwitch", "MultiLevelSwitch"],
+  "@type": ["Light", "OnOffSwitch"],
   "name":"My Lamp",
   "description": "A web connected lamp",
   "properties": {
@@ -32,13 +32,13 @@
       "description": "Whether the lamp is turned on",
       "href": "/things/lamp/properties/on"
     },
-    "level" : {
-      "@type": "LevelProperty",
+    "brightness" : {
+      "@type": "BrightnessProperty",
       "type": "number",
       "description": "The level of light from 0-100",
       "minimum" : 0,
       "maximum" : 100,
-      "href": "/things/lamp/properties/level"
+      "href": "/things/lamp/properties/brightness"
     }
   },
   "actions": {
