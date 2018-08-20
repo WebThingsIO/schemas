@@ -107,11 +107,17 @@
         <li><a href="#EnergyMonitor">EnergyMonitor</a></li>
         <li><a href="#SmartPlug">SmartPlug</a></li>
         <li><a href="#Light">Light</a></li>
+        <li><a href="#MotionSensor">MotionSensor</a>
+        <li><a href="#DoorSensor">DoorSensor</a>
+        <li><a href="#PushButton">PushButton</a>
       </ul>
       <li><strong><a href="#properties">Properties</a></strong></li>
       <ul>
         <li><a href="#BooleanProperty">BooleanProperty</a></li>
         <li><a href="#OnOffProperty">OnOffProperty</a></li>
+        <li><a href="#MotionProperty">MotionProperty</a></li>
+        <li><a href="#OpenClosedProperty">OpenClosedProperty</a></li>
+        <li><a href="#PushedProperty">PushedProperty</a></li>
         <li><a href="#LevelProperty">LevelProperty</a></li>
         <li><a href="#BrightnessProperty">BrightnessProperty</a></li>
         <li><a href="#ColorProperty">ColorProperty</a></li>
@@ -388,6 +394,72 @@
           </tr>
         </table>
       </section>
+      <section id="MotionSensor">
+        <h2>MotionSensor</h2>
+        <p>A device which detects moving objects.</p>
+        <h3>Properties</h3>
+          <table>
+            <tr>
+              <th>Type</th>
+              <th>Writable</th>
+              <th>Required</th>
+            </tr>
+            <tr>
+              <td><a href="#MotionProperty">MotionProperty</a></td>
+              <td>No</a></td>
+              <td>Yes</td>
+            </tr>
+            </tr>
+          </table>
+        <h3>Actions</h3>
+        <p>None.</p>
+        <h3>Events</h3>
+        <p>None.</p>
+      </section>
+      <section id="DoorSensor">
+        <h2>DoorSensor</h2>
+        <p>A device which detects whether a door or window is open or closed.</p>
+        <h3>Properties</h3>
+          <table>
+            <tr>
+              <th>Type</th>
+              <th>Writable</th>
+              <th>Required</th>
+            </tr>
+            <tr>
+              <td><a href="#OpenClosedProperty">OpenClosedProperty</a></td>
+              <td>No</a></td>
+              <td>Yes</td>
+            </tr>
+            </tr>
+          </table>
+        <h3>Actions</h3>
+        <p>None.</p>
+        <h3>Events</h3>
+        <p>None.</p>
+      </section>
+      <section id="PushButton">
+        <h2>PushButton</h2>
+        <p>A momenetary switch which can be pressed and returns to an un-pressed state when released.</p>
+        <h3>Properties</h3>
+          <table>
+            <tr>
+              <th>Type</th>
+              <th>Writable</th>
+              <th>Required</th>
+            </tr>
+            <tr>
+              <td><a href="#PushedProperty">PushedProperty</a></td>
+              <td>No</a></td>
+              <td>Yes</td>
+            </tr>
+            </tr>
+          </table>
+        <h3>Actions</h3>
+        <p>None.</p>
+        <h3>Events</h3>
+        <p>None.</p>
+      </section>
     </section>
     <section id="properties">
       <h1>Properties</h1>
@@ -411,6 +483,42 @@
           <p><strong>Note:</strong> An <code>OnOffProperty</code> is like a <code>BooleanProperty</code>, but
             with the added semantics that <code>true</code> means "on" and
             <code>false</code> means "off".</p>
+      </section>
+      <section id="MotionProperty">
+        <h2>MotionProperty</h2>
+          <table>
+            <tr>
+              <th>type</th>
+              <td>boolean</td>
+            </tr>
+          </table>
+          <p><strong>Note:</strong> A <code>MotionProperty</code> is like a <code>BooleanProperty</code>, but
+            with the added semantics that <code>true</code> means "motion" and
+            <code>false</code> means "no motion".</p>
+      </section>
+      <section id="PushedProperty">
+        <h2>PushedProperty</h2>
+          <table>
+            <tr>
+              <th>type</th>
+              <td>boolean</td>
+            </tr>
+          </table>
+          <p><strong>Note:</strong> A <code>PushedProperty</code> is like a <code>BooleanProperty</code>, but
+            with the added semantics that <code>true</code> means "pushed" and
+            <code>false</code> means "not pushed".</p>
+      </section>
+      <section id="OpenClosedProperty">
+        <h2>OpenClosedProperty</h2>
+          <table>
+            <tr>
+              <th>type</th>
+              <td>boolean</td>
+            </tr>
+          </table>
+          <p><strong>Note:</strong> An <code>OpenClosedProperty</code> is like a <code>BooleanProperty</code>, but
+            with the added semantics that <code>true</code> means "open" and
+            <code>false</code> means "closed".</p>
       </section>
       <section id="LevelProperty">
         <h2>LevelProperty</h2>
