@@ -34,7 +34,7 @@
     },
     "brightness" : {
       "@type": "BrightnessProperty",
-      "type": "number",
+      "type": "integer",
       "description": "The level of light from 0-100",
       "minimum" : 0,
       "maximum" : 100,
@@ -49,12 +49,13 @@
         "type": "object",
         "properties": {
           "level": {
-            "type": "number",
+            "type": "integer",
             "minimum": 0,
             "maximum": 100
           },
           "duration": {
-            "type": "number",
+            "type": "integer",
+            "minimum": 0,
             "unit": "milliseconds"
           }
         }
@@ -525,15 +526,15 @@
         <table>
           <tr>
             <th>type</th>
-            <td>number</td>
+            <td>number/integer</td>
           </tr>
           <tr>
             <th>minimum</th>
-            <td>number</td>
+            <td>number/integer</td>
           </tr>
           <tr>
             <th>maximum</th>
-            <td>number</td>
+            <td>number/integer</td>
           </tr>
           <tr>
             <th>unit</th>
@@ -546,7 +547,7 @@
         <table>
           <tr>
             <th>type</th>
-            <td>number</td>
+            <td>integer</td>
           </tr>
           <tr>
             <th>minimum</th>
@@ -567,7 +568,7 @@
         <table>
           <tr>
             <th>type</th>
-            <td>string (hexidecimal RGB color code, e.g. #FF0000)</td>
+            <td>string (hexadecimal RGB color code, e.g. #FF0000)</td>
           </tr>
         </table>
       </section>
@@ -576,7 +577,7 @@
         <table>
           <tr>
             <th>type</th>
-            <td>number</td>
+            <td>integer</td>
           </tr>
           <tr>
             <th>unit</th>
@@ -589,7 +590,7 @@
         <table>
           <tr>
             <th>type</th>
-            <td>number</td>
+            <td>number/integer</td>
           </tr>
           <tr>
             <th>unit</th>
@@ -602,7 +603,7 @@
         <table>
           <tr>
             <th>type</th>
-            <td>number</td>
+            <td>number/integer</td>
           </tr>
           <tr>
             <th>unit</th>
@@ -615,7 +616,7 @@
         <table>
           <tr>
             <th>type</th>
-            <td>number</td>
+            <td>number/integer</td>
           </tr>
           <tr>
             <th>unit</th>
@@ -628,7 +629,7 @@
         <table>
           <tr>
             <th>type</th>
-            <td>number</td>
+            <td>number/integer</td>
           </tr>
           <tr>
             <th>unit</th>
@@ -660,15 +661,16 @@
               <ul>
                 <li>level</li>
                 <ul>
-                  <li><strong>type:</strong> number</li>
+                  <li><strong>type:</strong> integer</li>
                   <li><strong>unit:</strong> percent</li>
                   <li><strong>minimum:</strong> 0</li>
                   <li><strong>maximum:</strong> 100</li>
                 </ul>
                 <li>duration</li>
                 <ul>
-                  <li><strong>type:</strong> number</li>
+                  <li><strong>type:</strong> integer</li>
                   <li><strong>unit:</strong> second</li>
+                  <li><strong>minimum:</strong> 0</li>
                 </ul>
               </ul>
             </td>
@@ -685,11 +687,11 @@
         <table>
           <tr>
             <th>type</th>
-            <td>number</td>
+            <td>number/integer</td>
           </tr>
           <tr>
             <th>unit</th>
-            <td>degree celcius</td>
+            <td>celsius</td>
           </tr>
         </table>
       </section>
