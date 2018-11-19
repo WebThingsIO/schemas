@@ -111,6 +111,7 @@
         <li><a href="#MotionSensor">MotionSensor</a></li>
         <li><a href="#DoorSensor">DoorSensor</a></li>
         <li><a href="#TemperatureSensor">TemperatureSensor</a></li>
+        <li><a href="#LeakSensor">LeakSensor</a>
         <li><a href="#PushButton">PushButton</a></li>
       </ul>
       <li><strong><a href="#properties">Properties</a></strong></li>
@@ -119,6 +120,7 @@
         <li><a href="#OnOffProperty">OnOffProperty</a></li>
         <li><a href="#MotionProperty">MotionProperty</a></li>
         <li><a href="#OpenProperty">OpenProperty</a></li>
+        <li><a href="#LeakProperty">LeakProperty</a></li>
         <li><a href="#PushedProperty">PushedProperty</a></li>
         <li><a href="#LevelProperty">LevelProperty</a></li>
         <li><a href="#BrightnessProperty">BrightnessProperty</a></li>
@@ -467,6 +469,27 @@
         <h3>Events</h3>
         <p>None.</p>
       </section>
+      <section id="LeakSensor">
+        <h2>LeakSensor</h2>
+        <p>A device which detects whether a water leak has occurred.</p>
+        <h3>Properties</h3>
+          <table>
+            <tr>
+              <th>Type</th>
+              <th>Read-Only</th>
+              <th>Required</th>
+            </tr>
+            <tr>
+              <td><a href="#LeakProperty">LeakProperty</a></td>
+              <td>Yes</td>
+              <td>Yes</td>
+            </tr>
+          </table>
+        <h3>Actions</h3>
+        <p>None.</p>
+        <h3>Events</h3>
+        <p>None.</p>
+      </section>
       <section id="PushButton">
         <h2>PushButton</h2>
         <p>A momentary switch which can be pushed and returns to an un-pushed state when released.</p>
@@ -558,6 +581,18 @@
           <p>An <code>OpenProperty</code> is like a <code>BooleanProperty</code>, but
             with the added semantics that <code>true</code> means "open" and
             <code>false</code> means "closed".</p>
+          <table>
+            <tr>
+              <th>type</th>
+              <td>boolean</td>
+            </tr>
+          </table>
+      </section>
+      <section id="LeakProperty">
+        <h2>LeakProperty</h2>
+          <p>A <code>LeakProperty</code> is like a <code>BooleanProperty</code>, but
+            with the added semantics that <code>true</code> means "leak" and
+            <code>false</code> means "no leak".</p>
           <table>
             <tr>
               <th>type</th>
