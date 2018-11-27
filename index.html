@@ -137,6 +137,9 @@
       <li><strong><a href="#events">Events</a></strong></li>
       <ul>
         <li><a href="#OverheatedEvent">OverheatedEvent</a></li>
+        <li><a href="#PressedEvent">PressedEvent</a></li>
+        <li><a href="#DoublePressedEvent">DoublePressedEvent</a></li>
+        <li><a href="#LongPressedEvent">LongPressedEvent</a></li>
       </ul>
     </ul>
     <section id="capabilities">
@@ -407,12 +410,12 @@
           <table>
             <tr>
               <th>Type</th>
-              <th>Writable</th>
+              <th>Read-Only</th>
               <th>Required</th>
             </tr>
             <tr>
               <td><a href="#MotionProperty">MotionProperty</a></td>
-              <td>No</a></td>
+              <td>Yes</a></td>
               <td>Yes</td>
             </tr>
             </tr>
@@ -429,12 +432,12 @@
           <table>
             <tr>
               <th>Type</th>
-              <th>Writable</th>
+              <th>Read-Only</th>
               <th>Required</th>
             </tr>
             <tr>
               <td><a href="#OpenProperty">OpenProperty</a></td>
-              <td>No</a></td>
+              <td>Yes</a></td>
               <td>Yes</td>
             </tr>
             </tr>
@@ -451,20 +454,37 @@
           <table>
             <tr>
               <th>Type</th>
-              <th>Writable</th>
+              <th>Read-Only</th>
               <th>Required</th>
             </tr>
             <tr>
               <td><a href="#PushedProperty">PushedProperty</a></td>
-              <td>No</a></td>
-              <td>Yes</td>
+              <td>Yes</a></td>
+              <td>No</td>
             </tr>
             </tr>
           </table>
         <h3>Actions</h3>
         <p>None.</p>
         <h3>Events</h3>
-        <p>None.</p>
+        <table>
+          <tr>
+            <th>Type</th>
+            <th>Required</th>
+          </tr>
+          <tr>
+            <td><a href="#PressedEvent">PressedEvent</a></td>
+            <td>Yes</td>
+          </tr>
+          <tr>
+            <td><a href="#DoublePressedEvent">DoublePressedEvent</a></td>
+            <td>No</td>
+          </tr>
+          <tr>
+            <td><a href="#LongPressedEvent">LongPressedEvent</a></td>
+            <td>No</td>
+          </tr>
+        </table>
       </section>
     </section>
     <section id="properties">
@@ -712,6 +732,18 @@
             <td>degree celsius</td>
           </tr>
         </table>
+      </section>
+      <section id="PressedEvent">
+        <h2>PressedEvent</h2>
+        <p>Indicates a button has been single-pressed.</p>
+      </section>
+      <section id="DoublePressedEvent">
+        <h2>DoublePressedEvent</h2>
+        <p>Indicates a button has been double-pressed.</p>
+      </section>
+      <section id="LongPressedEvent">
+        <h2>LongPressedEvent</h2>
+        <p>Indicates a button has been long-pressed.</p>
       </section>
     </section>
   </body>
