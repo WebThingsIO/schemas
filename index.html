@@ -144,7 +144,8 @@
         <li><a href="#TrackProperty">TrackProperty</a></li>
         <li><a href="#ArtistProperty">ArtistProperty</a></li>
         <li><a href="#AlbumProperty">AlbumProperty</a></li>
-        <li><a href="#PreviewURLProperty">PreviewURLProperty</a></li>
+        <li><a href="#PreviewProperty">PreviewProperty</a></li>
+        <li><a href="#MutedProperty">MutedProperty</a></li>
       </ul>
       <li><strong><a href="#actions">Actions</a></strong></li>
       <ul>
@@ -609,7 +610,7 @@
             </tr>
             <tr>
               <td><a href="#PlayingProperty">PlayingProperty</a></td>
-              <td>No</td>
+              <td>Possibly, if the thing does not support pausing/resuming</td>
               <td>Yes</td>
             </tr>
             <tr>
@@ -643,8 +644,13 @@
               <td>No</td>
             </tr>
             <tr>
-              <td><a href="#PreviewURLProperty">PreviewURLProperty</a></td>
+              <td><a href="#PreviewProperty">PreviewProperty</a></td>
               <td>Yes</td>
+              <td>No</td>
+            </tr>
+            <tr>
+              <td><a href="#MutedProperty">MutedProperty</a></td>
+              <td>No</td>
               <td>No</td>
             </tr>
           </table>
@@ -977,12 +983,22 @@
           </tr>
         </table>
       </section>
-      <section id="PreviewURLProperty">
-        <h2>PreviewURLProperty</h2>
+      <section id="PreviewProperty">
+        <h2>PreviewProperty</h2>
         <table>
           <tr>
             <th>type</th>
-            <td>string</td>
+            <td>null/undefined</td>
+          </tr>
+        </table>
+        <p><strong>Note:</strong> The primitive <code>type</code> of an <code>PreviewProperty</code> is <code>null</code> or <code>undefined</code> (omitted), but it must provide a <code>mediaType</code> in one or more <a href="https://iot.mozilla.org/wot/#link-object">link relations</a> which link to binary representations of the preview property resource.</p>
+      </section>
+      <section id="MutedProperty">
+        <h2>MutedProperty</h2>
+        <table>
+          <tr>
+            <th>type</th>
+            <td>boolean</td>
           </tr>
         </table>
       </section>
