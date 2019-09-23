@@ -23,27 +23,31 @@
       <pre><code class="language-json">{
   "@context": "https://iot.mozilla.org/schemas/",
   "@type": ["Light", "OnOffSwitch"],
-  "name":"My Lamp",
+  "id": "https://mywebthingserver.com/things/lamp",
+  "title":"My Lamp",
   "description": "A web connected lamp",
   "properties": {
     "on": {
       "@type": "OnOffProperty",
       "type": "boolean",
+      "title": "On/Off",
       "description": "Whether the lamp is turned on",
-      "href": "/things/lamp/properties/on"
+      "links": [{"href": "/things/lamp/properties/on"}]
     },
     "brightness" : {
       "@type": "BrightnessProperty",
       "type": "integer",
+      "title": "Brightness",
       "description": "The level of light from 0-100",
       "minimum" : 0,
       "maximum" : 100,
-      "href": "/things/lamp/properties/brightness"
+      "links": [{"href": "/things/lamp/properties/brightness"}]
     }
   },
   "actions": {
     "fade": {
       "@type": "FadeAction",
+      "title": "Fade",
       "description": "Fade the lamp to a given level",
       "input": {
         "type": "object",
@@ -60,16 +64,17 @@
           }
         }
       },
-      "href": "/things/lamp/actions/fade"
+      "links": [{"href": "/things/lamp/actions/fade"}]
     }
   },
   "events": {
     "overheated": {
+      "title": "Overheated",
       "@type": "OverheatedEvent",
       "type": "number",
       "unit": "degree celsius",
       "description": "The lamp has exceeded its safe operating temperature",
-      "href": "/things/lamp/events/overheated"
+      "links": [{"href": "/things/lamp/events/overheated"}]
     }
   },
   "links": [
