@@ -113,6 +113,7 @@
         <li><a href="#EnergyMonitor">EnergyMonitor</a></li>
         <li><a href="#LeakSensor">LeakSensor</a>
         <li><a href="#Light">Light</a></li>
+        <li><a href="#Lock">Lock</a></li>
         <li><a href="#MotionSensor">MotionSensor</a></li>
         <li><a href="#MultiLevelSensor">MultiLevelSensor</a></li>
         <li><a href="#MultiLevelSwitch">MultiLevelSwitch</a></li>
@@ -137,10 +138,12 @@
         <li><a href="#InstantaneousPowerProperty">InstantaneousPowerProperty</a></li>
         <li><a href="#LeakProperty">LeakProperty</a></li>
         <li><a href="#LevelProperty">LevelProperty</a></li>
+        <li><a href="#LockedProperty">LockedProperty</a></li>
         <li><a href="#MotionProperty">MotionProperty</a></li>
         <li><a href="#OnOffProperty">OnOffProperty</a></li>
         <li><a href="#OpenProperty">OpenProperty</a></li>
         <li><a href="#PushedProperty">PushedProperty</a></li>
+        <li><a href="#TargetLockedProperty">TargetLockedProperty</a></li>
         <li><a href="#TargetTemperatureProperty">TargetTemperatureProperty</a></li>
         <li><a href="#TemperatureProperty">TemperatureProperty</a></li>
         <li><a href="#ThermostatModeProperty">ThermostatModeProperty</a></li>
@@ -385,6 +388,32 @@
             <td>No</td>
           </tr>
         </table>
+      </section>
+      <section id="Lock">
+        <h2>Lock</h2>
+        <p>A device which fastens or secures an opening (e.g. a door or window).</p>
+        <h3>Properties</h3>
+          <table>
+            <tr>
+              <th>Type</th>
+              <th>Read-Only</th>
+              <th>Required</th>
+            </tr>
+            <tr>
+              <td><a href="#LockedProperty">LockedProperty</a></td>
+              <td>Yes</td>
+              <td>Yes</td>
+            </tr>
+            <tr>
+              <td><a href="#TargetLockedProperty">TargetLockedProperty</a></td>
+              <td>No</td>
+              <td>No</td>
+            </tr>
+          </table>
+        <h3>Actions</h3>
+        <p>None.</p>
+        <h3>Events</h3>
+        <p>None.</p>
       </section>
       <section id="MotionSensor">
         <h2>MotionSensor</h2>
@@ -820,6 +849,20 @@
           </tr>
         </table>
       </section>
+      <section id="LockedProperty">
+        <h2>LockedProperty</h2>
+        <p>Defines the current state of a lock type device which can be locked, unlocked or some intermediate state. Must support a "locked" and "unlocked" state. May optionally support an "unknown" and/or "jammed" state.</p>
+        <table>
+          <tr>
+            <th>type</th>
+            <td>string</td>
+          </tr>
+          <tr>
+            <th>enum</th>
+            <td>["locked", "unlocked", "unknown", "jammed"]</td>
+          </tr>
+        </table>
+      </section>
       <section id="MotionProperty">
         <h2>MotionProperty</h2>
           <p>A <code>MotionProperty</code> is like a <code>BooleanProperty</code>, but
@@ -868,6 +911,20 @@
             </tr>
           </table>
       </section>      
+      <section id="TargetLockedProperty">
+        <h2>TargetLockedProperty</h2>
+        <p>Like a <a href="#LockedProperty"><code>LockedProperty</code></a>, but defines a desired rather than current state. Must support a "locked" and "unlocked" state.</p>
+        <table>
+          <tr>
+            <th>type</th>
+            <td>string</td>
+          </tr>
+          <tr>
+            <th>enum</th>
+            <td>["locked", "unlocked"]</td>
+          </tr>
+        </table>
+      </section>
       <section id="TargetTemperatureProperty">
         <h2>TargetTemperatureProperty</h2>
         <p>A <code>TargetTemperatureProperty</code> is like a <code>TemperatureProperty</code>, but defines a desired temperature rather than a current temperature.</p>
