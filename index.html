@@ -143,7 +143,6 @@
         <li><a href="#OnOffProperty">OnOffProperty</a></li>
         <li><a href="#OpenProperty">OpenProperty</a></li>
         <li><a href="#PushedProperty">PushedProperty</a></li>
-        <li><a href="#TargetLockedProperty">TargetLockedProperty</a></li>
         <li><a href="#TargetTemperatureProperty">TargetTemperatureProperty</a></li>
         <li><a href="#TemperatureProperty">TemperatureProperty</a></li>
         <li><a href="#ThermostatModeProperty">ThermostatModeProperty</a></li>
@@ -153,7 +152,9 @@
       <li><strong><a href="#actions">Actions</a></strong></li>
       <ul>
         <li><a href="#FadeAction">FadeAction</a></li>
+        <li><a href="#LockAction">LockAction</a></li>
         <li><a href="#ToggleAction">ToggleAction</a></li>
+        <li><a href="#UnlockAction">UnlockAction</a></li>
       </ul>
       <li><strong><a href="#events">Events</a></strong></li>
       <ul>
@@ -403,14 +404,22 @@
               <td>Yes</td>
               <td>Yes</td>
             </tr>
-            <tr>
-              <td><a href="#TargetLockedProperty">TargetLockedProperty</a></td>
-              <td>No</td>
-              <td>No</td>
-            </tr>
           </table>
         <h3>Actions</h3>
-        <p>None.</p>
+        <table>
+          <tr>
+            <th>Type</th>
+            <th>Required</th>
+          </tr>
+          <tr>
+            <td><a href="#LockAction">LockAction</a></td>
+            <td>No</td>
+          </tr>
+          <tr>
+            <td><a href="#UnlockAction">UnlockAction</a></td>
+            <td>No</td>
+          </tr>
+        </table>
         <h3>Events</h3>
         <p>None.</p>
       </section>
@@ -910,20 +919,6 @@
             </tr>
           </table>
       </section>      
-      <section id="TargetLockedProperty">
-        <h2>TargetLockedProperty</h2>
-        <p>Like a <a href="#LockedProperty"><code>LockedProperty</code></a>, but defines a desired rather than current state. Must support a "locked" and "unlocked" state.</p>
-        <table>
-          <tr>
-            <th>type</th>
-            <td>string</td>
-          </tr>
-          <tr>
-            <th>enum</th>
-            <td>["locked", "unlocked"]</td>
-          </tr>
-        </table>
-      </section>
       <section id="TargetTemperatureProperty">
         <h2>TargetTemperatureProperty</h2>
         <p>A <code>TargetTemperatureProperty</code> is like a <code>TemperatureProperty</code>, but defines a desired temperature rather than a current temperature.</p>
@@ -1022,12 +1017,25 @@
           </tr>
         </table>
       </section>
+      <section id="LockAction">
+        <h2>LockAction</h2>
+        <p>Transitions a lock type device to a "locked" state.</p>
+        <h3>input</h3>
+        <p>None.</p>
+      </section>
+    </section>
       <section id="ToggleAction">
         <h2>ToggleAction</h2>
         <p>Toggles a boolean state on and off.</p>
         <h3>input</h3>
         <p>None.</p>
       </section>
+    </section>
+    <section id="UnlockAction">
+      <h2>UnlockAction</h2>
+      <p>Transitions a lock type device to an "unlocked" state.</p>
+      <h3>input</h3>
+      <p>None.</p>
     </section>
     <section id="events">
       <h1>Events</h1>
