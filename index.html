@@ -130,6 +130,7 @@
         <li><a href="#AlarmProperty">AlarmProperty</a></li>        
         <li><a href="#BooleanProperty">BooleanProperty</a></li>
         <li><a href="#BrightnessProperty">BrightnessProperty</a></li>        
+        <li><a href="#ColorModeProperty">ColorModeProperty</a></li>
         <li><a href="#ColorProperty">ColorProperty</a></li>
         <li><a href="#ColorTemperatureProperty">ColorTemperatureProperty</a></li>
         <li><a href="#CurrentProperty">CurrentProperty</a></li>
@@ -175,10 +176,12 @@
           <table>
             <tr>
               <th>Type</th>
+              <th>Read-Only</th>
               <th>Required</th>
             </tr>
             <tr>
               <td><a href="#AlarmProperty">AlarmProperty</a></td>
+              <td>See note</td>
               <td>Yes</td>
             </tr>
           </table>
@@ -206,10 +209,12 @@
           <table>
             <tr>
               <th>Type</th>
+              <th>Read-Only</th>
               <th>Required</th>
             </tr>
             <tr>
               <td><a href="#BooleanProperty">BooleanProperty</a></td>
+              <td>Yes</td>
               <td>Yes</td>
             </tr>
           </table>
@@ -246,18 +251,26 @@
           <table>
             <tr>
               <th>Type</th>
+              <th>Read-Only</th>
               <th>Required</th>
             </tr>
             <tr>
+              <td><a href="#ColorModeProperty">ColorModeProperty</a></td>
+              <td>Yes</td>
+              <td>No</td>
+            </tr>
+            <tr>
               <td><a href="#ColorProperty">ColorProperty</a></td>
+              <td>No</td>
               <td>No</td>
             </tr>
             <tr>
               <td><a href="#ColorTemperatureProperty">ColorTemperatureProperty</a></td>
               <td>No</td>
+              <td>No</td>
             </tr>
           </table>
-          <p><strong>Note:</strong> A device implementing the <code>ColorControl</code> capability <strong>MUST</strong> include either a <code>ColorProperty</code> or a <code>ColorTemperatureProperty</code>.
+          <p><strong>Note:</strong> A device implementing the <code>ColorControl</code> capability <strong>MUST</strong> include either a <code>ColorProperty</code> or a <code>ColorTemperatureProperty</code>. If both are included, the device <strong>MUST</strong> also include a <code>ColorModeProperty</code>.
         <h3>Actions</h3>
         <p>None.</p>
         <h3>Events</h3>
@@ -312,22 +325,27 @@
           <table>
             <tr>
               <th>Type</th>
+              <th>Read-Only</th>
               <th>Required</th>
             </tr>
             <tr>
               <td><a href="#InstantaneousPowerProperty">InstantaneousPowerProperty</a></td>
               <td>Yes</td>
+              <td>Yes</td>
             </tr>
             <tr>
               <td><a href="#VoltageProperty">VoltageProperty</a></td>
+              <td>Yes</td>
               <td>No</td>
             </tr>
             <tr>
               <td><a href="#CurrentProperty">CurrentProperty</a></td>
+              <td>Yes</td>
               <td>No</td>
             </tr>
             <tr>
               <td><a href="#FrequencyProperty">FrequencyProperty</a></td>
+              <td>Yes</td>
               <td>No</td>
             </tr>
           </table>
@@ -365,22 +383,32 @@
           <table>
             <tr>
               <th>Type</th>
+              <th>Read-Only</th>
               <th>Required</th>
             </tr>
             <tr>
               <td><a href="#OnOffProperty">OnOffProperty</a></td>
+              <td>No</td>
               <td>Yes</td>
             </tr>
             <tr>
               <td><a href="#BrightnessProperty">BrightnessProperty</a></td>
               <td>No</td>
+              <td>No</td>
+            </tr>
+            <tr>
+              <td><a href="#ColorModeProperty">ColorModeProperty</a></td>
+              <td>Yes</td>
+              <td>No</td>
             </tr>
             <tr>
               <td><a href="#ColorProperty">ColorProperty</a></td>
               <td>No</td>
+              <td>No</td>
             </tr>
             <tr>
               <td><a href="#ColorTemperatureProperty">ColorTemperatureProperty</a></td>
+              <td>No</td>
               <td>No</td>
             </tr>
           </table>
@@ -473,10 +501,12 @@
           <table>
             <tr>
               <th>Type</th>
+              <th>Read-Only</th>
               <th>Required</th>
             </tr>
             <tr>
               <td><a href="#LevelProperty">LevelProperty</a></td>
+              <td>Yes</td>
               <td>Yes</td>
             </tr>
           </table>
@@ -492,14 +522,17 @@
           <table>
             <tr>
               <th>Type</th>
+              <th>Read-Only</th>
               <th>Required</th>
             </tr>
             <tr>
               <td><a href="#LevelProperty">LevelProperty</a></td>
+              <td>No</td>
               <td>Yes</td>
             </tr>
             <tr>
               <td><a href="#OnOffProperty">OnOffProperty</a></td>
+              <td>No</td>
               <td>No</td>
             </tr>
           </table>
@@ -524,10 +557,12 @@
           <table>
             <tr>
               <th>Type</th>
+              <th>Read-Only</th>
               <th>Required</th>
             </tr>
             <tr>
               <td><a href="#OnOffProperty">OnOffProperty</a></td>
+              <td>No</td>
               <td>Yes</td>
             </tr>
           </table>
@@ -590,30 +625,37 @@
           <table>
             <tr>
               <th>Type</th>
+              <th>Read-Only</th>
               <th>Required</th>
             </tr>
             <tr>
               <td><a href="#OnOffProperty">OnOffProperty</a></td>
+              <td>No</td>
               <td>Yes</td>
             </tr>
             <tr>
               <td><a href="#LevelProperty">LevelProperty</a></td>
               <td>No</td>
+              <td>No</td>
             </tr>
             <tr>
               <td><a href="#InstantaneousPowerProperty">InstantaneousPowerProperty</a></td>
+              <td>Yes</td>
               <td>No</td>
             </tr>
             <tr>
               <td><a href="#VoltageProperty">VoltageProperty</a></td>
+              <td>Yes</td>
               <td>No</td>
             </tr>
             <tr>
               <td><a href="#CurrentProperty">CurrentProperty</a></td>
+              <td>Yes</td>
               <td>No</td>
             </tr>
             <tr>
               <td><a href="#FrequencyProperty">FrequencyProperty</a></td>
+              <td>Yes</td>
               <td>No</td>
             </tr>
           </table>
@@ -761,6 +803,20 @@
           </tr>
         </table>
       </section>      
+      <section id="ColorModeProperty">
+        <h2>ColorModeProperty</h2>
+        <p>Defines the current color mode of the device.</p>
+        <table>
+          <tr>
+            <th>type</th>
+            <td>string</td>
+          </tr>
+          <tr>
+            <th>enum</th>
+            <td>["color", "temperature"]</td>
+          </tr>
+        </table>
+      </section>
       <section id="ColorProperty">
         <h2>ColorProperty</h2>
         <table>
@@ -1045,19 +1101,18 @@
         <h3>input</h3>
         <p>None.</p>
       </section>
-    </section>
       <section id="ToggleAction">
         <h2>ToggleAction</h2>
         <p>Toggles a boolean state on and off.</p>
         <h3>input</h3>
         <p>None.</p>
       </section>
-    </section>
-    <section id="UnlockAction">
-      <h2>UnlockAction</h2>
-      <p>Transitions a lock type device to an "unlocked" state.</p>
-      <h3>input</h3>
-      <p>None.</p>
+      <section id="UnlockAction">
+        <h2>UnlockAction</h2>
+        <p>Transitions a lock type device to an "unlocked" state.</p>
+        <h3>input</h3>
+        <p>None.</p>
+      </section>
     </section>
     <section id="events">
       <h1>Events</h1>
