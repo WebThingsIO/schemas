@@ -256,7 +256,7 @@
             </tr>
             <tr>
               <td><a href="#ColorModeProperty">ColorModeProperty</a></td>
-              <td>Yes</td>
+              <td>See note</td>
               <td>No</td>
             </tr>
             <tr>
@@ -271,6 +271,7 @@
             </tr>
           </table>
           <p><strong>Note:</strong> A device implementing the <code>ColorControl</code> capability <strong>MUST</strong> include either a <code>ColorProperty</code> or a <code>ColorTemperatureProperty</code>. If both are included, the device <strong>MUST</strong> also include a <code>ColorModeProperty</code>.
+          <p><strong>Note:</strong> A <code>ColorModeProperty</code> may be read-only if the device cannot handle changing the mode directly, in which case it will serve as a status indicator.
         <h3>Actions</h3>
         <p>None.</p>
         <h3>Events</h3>
