@@ -149,6 +149,7 @@
         <li><a href="#OnOffProperty">OnOffProperty</a></li>
         <li><a href="#OpenProperty">OpenProperty</a></li>
         <li><a href="#PushedProperty">PushedProperty</a></li>
+        <li><a href="#SmokeProperty">SmokeProperty</a></li>
         <li><a href="#TargetTemperatureProperty">TargetTemperatureProperty</a></li>
         <li><a href="#TemperatureProperty">TemperatureProperty</a></li>
         <li><a href="#ThermostatModeProperty">ThermostatModeProperty</a></li>
@@ -204,8 +205,31 @@
           </tr>
         </table>
       </section>
-      
-            
+      <section id="AirQualityMonitor">
+        <h2>AirQualityMonitor</h2>
+        <p>Capability to monitor air quality. Usually monitors the concentration of harmful gases
+          (such as CO2, CO or VOCs) together with PM2.5, PM10 dust particulates.
+        </p>
+        <h3>Properties</h3>
+          <table>
+            <tr>
+              <th>Type</th>
+              <th>Read-Only</th>
+              <th>Required</th>
+              <th>Notes</th>
+            </tr>
+            <tr>
+              <td><a href="#ConcentrationProperty">ConcentrationProperty</a></td>
+              <td>Yes</td>
+              <td>Yes</td>
+              <td>At least one should be defined, separate property for each sensed gas or particulate class.</td>
+            </tr>
+          </table>
+        <h3>Actions</h3>
+        <p>None.</p>
+        <h3>Events</h3>
+        <p>None.</p>
+      </section>
       <section id="BinarySensor">
         <h2>BinarySensor</h2>
         <p>A simple sensor with an active (true) and inactive (false) state.</p>
@@ -357,31 +381,6 @@
               <td><a href="#FrequencyProperty">FrequencyProperty</a></td>
               <td>Yes</td>
               <td>No</td>
-            </tr>
-          </table>
-        <h3>Actions</h3>
-        <p>None.</p>
-        <h3>Events</h3>
-        <p>None.</p>
-      </section>
-      <section id="AirQualityMonitor">
-        <h2>AirQualityMonitor</h2>
-        <p>Capability to monitor air quality. Usually monitors the concentration of harmful gases
-          (such as CO2, CO or VOCs) together with PM2.5, PM10 dust particulates.
-        </p>
-        <h3>Properties</h3>
-          <table>
-            <tr>
-              <th>Type</th>
-              <th>Read-Only</th>
-              <th>Required</th>
-              <th>Notes</th>
-            </tr>
-            <tr>
-              <td><a href="#ConcentrationProperty">ConcentrationProperty</a></td>
-              <td>Yes</td>
-              <td>Yes</td>
-              <td>At least one should be defined, separate property for each sensed gas or particulate class.</td>
             </tr>
           </table>
         <h3>Actions</h3>
@@ -903,12 +902,11 @@
       <section id="ConcentrationProperty">
         <h2>ConcentrationProperty</h2>
         <p>A concentration of a gas or other volatile (like dust particulates). Used in air quality sensors.
-          Unit is parts per billion to account for very diluted pollutants such as Volatile Organic Compounds (VOCs).
         </p>
         <table>
           <tr>
             <th>type</th>
-            <td>number/integer</td>
+            <td>number</td>
           </tr>
           <tr>
             <th>minimum</th>
@@ -916,7 +914,7 @@
           </tr>
           <tr>
             <th>unit</th>
-            <td>ppb</td>
+            <td>ppm</td>
           </tr>
         </table>
       </section>
@@ -972,7 +970,7 @@
       </section>
       <section id="InstantaneousPowerProperty">
         <h2>InstantaneousPowerProperty</h2>
-        <p>This is the active or real power measurement (see <a href="https://en.wikipedia.org/wiki/AC_power#Real_power">wikipedia</a>)</p>
+        <p>This is the active or real power measurement (see <a href="https://en.wikipedia.org/wiki/AC_power#Real_power">Wikipedia</a>)</p>
         <table>
           <tr>
             <th>type</th>
@@ -990,7 +988,7 @@
         <table>
           <tr>
             <th>type</th>
-            <td>number/integer</td>
+            <td>number</td>
           </tr>
           <tr>
             <th>minimum</th>
@@ -1014,18 +1012,6 @@
             </tr>
           </table>
       </section>
-      <section id="SmokeProperty">
-          <h2>SmokeProperty</h2>
-            <p>A <code>SmokeProperty</code> is like a <code>BooleanProperty</code>, but
-              with the added semantics that <code>true</code> means "smoke detected" and
-              <code>false</code> means "no smoke".</p>
-            <table>
-              <tr>
-                <th>type</th>
-                <td>boolean</td>
-              </tr>
-            </table>
-        </section>
       <section id="LevelProperty">
         <h2>LevelProperty</h2>
         <table>
@@ -1108,7 +1094,19 @@
               <td>boolean</td>
             </tr>
           </table>
-      </section>      
+      </section>
+      <section id="SmokeProperty">
+        <h2>SmokeProperty</h2>
+          <p>A <code>SmokeProperty</code> is like a <code>BooleanProperty</code>, but
+            with the added semantics that <code>true</code> means "smoke detected" and
+            <code>false</code> means "no smoke".</p>
+          <table>
+            <tr>
+              <th>type</th>
+              <td>boolean</td>
+            </tr>
+          </table>
+      </section>
       <section id="TargetTemperatureProperty">
         <h2>TargetTemperatureProperty</h2>
         <p>A <code>TargetTemperatureProperty</code> is like a <code>TemperatureProperty</code>, but defines a desired temperature rather than a current temperature.</p>
