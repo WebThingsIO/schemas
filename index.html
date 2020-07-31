@@ -112,6 +112,7 @@
         <li><a href="#ColorSensor">ColorSensor</a></li>
         <li><a href="#DoorSensor">DoorSensor</a></li>
         <li><a href="#EnergyMonitor">EnergyMonitor</a></li>
+        <li><a href="#HumiditySensor">HumiditySensor</a></li>
         <li><a href="#LeakSensor">LeakSensor</a>
         <li><a href="#Light">Light</a></li>
         <li><a href="#Lock">Lock</a></li>
@@ -136,6 +137,7 @@
         <li><a href="#CurrentProperty">CurrentProperty</a></li>
         <li><a href="#FrequencyProperty">FrequencyProperty</a></li>
         <li><a href="#HeatingCoolingProperty">HeatingCoolingProperty</a></li>
+        <li><a href="#HumidityProperty">HumidityProperty</a></li>
         <li><a href="#ImageProperty">ImageProperty</a></li>
         <li><a href="#InstantaneousPowerProperty">InstantaneousPowerProperty</a></li>
         <li><a href="#LeakProperty">LeakProperty</a></li>
@@ -354,7 +356,28 @@
         <p>None.</p>
         <h3>Events</h3>
         <p>None.</p>
-      </section>      
+      </section>
+      <section id="HumiditySensor">
+        <h2>HumiditySensor</h2>
+        <p>Capability to monitor the current humidity.</p>
+        <h3>Properties</h3>
+          <table>
+            <tr>
+              <th>Type</th>
+              <th>Read-Only</th>
+              <th>Required</th>
+            </tr>
+            <tr>
+              <td><a href="#HumidityProperty">HumidityProperty</a></td>
+              <td>Yes</td>
+              <td>Yes</td>
+            </tr>
+          </table>
+        <h3>Actions</h3>
+        <p>None.</p>
+        <h3>Events</h3>
+        <p>None.</p>
+      </section>
       <section id="LeakSensor">
         <h2>LeakSensor</h2>
         <p>A device which detects whether a water leak has occurred.</p>
@@ -877,6 +900,27 @@
           <tr>
             <th>enum</th>
             <td>["off", "heating", "cooling"]</td>
+          </tr>
+        </table>
+      </section>
+      <section id="HumidityProperty">
+        <h2>HumidityProperty</h2>
+        <table>
+          <tr>
+            <th>type</th>
+            <td>number/integer</td>
+          </tr>
+          <tr>
+            <th>minimum</th>
+            <td>0</td>
+          </tr>
+          <tr>
+            <th>maximum</th>
+            <td>100</td>
+          </tr>
+          <tr>
+            <th>unit</th>
+            <td>percent</td>
           </tr>
         </table>
       </section>
