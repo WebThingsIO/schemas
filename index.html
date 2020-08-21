@@ -106,6 +106,7 @@
       <li><strong><a href="#capabilities">Capabilities</a></strong></li>
       <ul>
         <li><a href="#Alarm">Alarm</a></li>
+        <li><a href="#BarometricSensor">BarometricSensor</a></li>
         <li><a href="#BinarySensor">BinarySensor</a></li>
         <li><a href="#Camera">Camera</a></li>  
         <li><a href="#ColorControl">ColorControl</a></li>      
@@ -202,8 +203,27 @@
           </tr>
         </table>
       </section>
-      
-            
+      <section id="BarometricSensor">
+        <h2>BarometricSensor</h2>
+        <p>A device which can measure the barometric pressure.</p>
+        <h3>Properties</h3>
+          <table>
+            <tr>
+              <th>Type</th>
+              <th>Read-Only</th>
+              <th>Required</th>
+            </tr>
+            <tr>
+              <td><a href="#BarometricProperty">BarometricProperty</a></td>
+              <td>Yes</td>
+              <td>Yes</td>
+            </tr>
+          </table>
+        <h3>Actions</h3>
+        <p>None.</p>
+        <h3>Events</h3>
+        <p>None.</p>
+      </section>
       <section id="BinarySensor">
         <h2>BinarySensor</h2>
         <p>A simple sensor with an active (true) and inactive (false) state.</p>
@@ -794,6 +814,19 @@
           <tr>
             <th>type</th>
             <td>boolean</td>
+          </tr>
+        </table>
+      </section>
+      <section id="BarometricProperty">
+        <h2>BarometricProperty</h2>
+        <table>
+          <tr>
+            <th>type</th>
+            <td>number/integer</td>
+          </tr>
+          <tr>
+            <th>unit</th>
+            <td>hectopascal</td>
           </tr>
         </table>
       </section>      
