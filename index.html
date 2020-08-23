@@ -106,6 +106,7 @@
       <li><strong><a href="#capabilities">Capabilities</a></strong></li>
       <ul>
         <li><a href="#Alarm">Alarm</a></li>
+        <li><a href="#BarometricPressureSensor">BarometricPressureSensor</a></li>
         <li><a href="#BinarySensor">BinarySensor</a></li>
         <li><a href="#Camera">Camera</a></li>  
         <li><a href="#ColorControl">ColorControl</a></li>      
@@ -129,6 +130,7 @@
       <li><strong><a href="#properties">Properties</a></strong></li>
       <ul>
         <li><a href="#AlarmProperty">AlarmProperty</a></li>        
+        <li><a href="#BarometricPressureProperty">BarometricPressureProperty</a></li>
         <li><a href="#BooleanProperty">BooleanProperty</a></li>
         <li><a href="#BrightnessProperty">BrightnessProperty</a></li>        
         <li><a href="#ColorModeProperty">ColorModeProperty</a></li>
@@ -202,8 +204,27 @@
           </tr>
         </table>
       </section>
-      
-            
+      <section id="BarometricPressureSensor">
+        <h2>BarometricPressureSensor</h2>
+        <p>A device which can measure the barometric pressure.</p>
+        <h3>Properties</h3>
+          <table>
+            <tr>
+              <th>Type</th>
+              <th>Read-Only</th>
+              <th>Required</th>
+            </tr>
+            <tr>
+              <td><a href="#BarometricPressureProperty">BarometricPressureProperty</a></td>
+              <td>Yes</td>
+              <td>Yes</td>
+            </tr>
+          </table>
+        <h3>Actions</h3>
+        <p>None.</p>
+        <h3>Events</h3>
+        <p>None.</p>
+      </section>
       <section id="BinarySensor">
         <h2>BinarySensor</h2>
         <p>A simple sensor with an active (true) and inactive (false) state.</p>
@@ -794,6 +815,19 @@
           <tr>
             <th>type</th>
             <td>boolean</td>
+          </tr>
+        </table>
+      </section>
+      <section id="BarometricPressureProperty">
+        <h2>BarometricPressureProperty</h2>
+        <table>
+          <tr>
+            <th>type</th>
+            <td>number/integer</td>
+          </tr>
+          <tr>
+            <th>unit</th>
+            <td>hectopascal</td>
           </tr>
         </table>
       </section>      
