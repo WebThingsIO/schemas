@@ -107,12 +107,14 @@
       <ul>
         <li><a href="#Alarm">Alarm</a></li>
         <li><a href="#AirQualitySensor">AirQualitySensor</a></li>
+        <li><a href="#BarometricPressureSensor">BarometricPressureSensor</a></li>
         <li><a href="#BinarySensor">BinarySensor</a></li>
         <li><a href="#Camera">Camera</a></li>  
         <li><a href="#ColorControl">ColorControl</a></li>      
         <li><a href="#ColorSensor">ColorSensor</a></li>
         <li><a href="#DoorSensor">DoorSensor</a></li>
         <li><a href="#EnergyMonitor">EnergyMonitor</a></li>
+        <li><a href="#HumiditySensor">HumiditySensor</a></li>
         <li><a href="#LeakSensor">LeakSensor</a>
         <li><a href="#Light">Light</a></li>
         <li><a href="#Lock">Lock</a></li>
@@ -130,6 +132,7 @@
       <li><strong><a href="#properties">Properties</a></strong></li>
       <ul>
         <li><a href="#AlarmProperty">AlarmProperty</a></li>        
+        <li><a href="#BarometricPressureProperty">BarometricPressureProperty</a></li>
         <li><a href="#BooleanProperty">BooleanProperty</a></li>
         <li><a href="#BrightnessProperty">BrightnessProperty</a></li>        
         <li><a href="#ColorModeProperty">ColorModeProperty</a></li>
@@ -140,6 +143,7 @@
         <li><a href="#DensityProperty">DensityProperty</a></li>
         <li><a href="#FrequencyProperty">FrequencyProperty</a></li>
         <li><a href="#HeatingCoolingProperty">HeatingCoolingProperty</a></li>
+        <li><a href="#HumidityProperty">HumidityProperty</a></li>
         <li><a href="#ImageProperty">ImageProperty</a></li>
         <li><a href="#InstantaneousPowerProperty">InstantaneousPowerProperty</a></li>
         <li><a href="#InstantaneousPowerFactorProperty">InstantaneousPowerFactorProperty</a></li>
@@ -226,11 +230,32 @@
               <td>At least one ConcentrationProperty or DensityProperty should be defined, separate property for each sensed gas or particulate class.</td>
             </tr>
             <tr>
-                <td><a href="#DensityProperty">DensityProperty</a></td>
-                <td>Yes</td>
-                <td>Yes</td>
-                <td>At least one ConcentrationProperty or DensityProperty should be defined, separate property for each sensed gas or particulate class.</td>
-              </tr>
+              <td><a href="#DensityProperty">DensityProperty</a></td>
+              <td>Yes</td>
+              <td>Yes</td>
+              <td>At least one ConcentrationProperty or DensityProperty should be defined, separate property for each sensed gas or particulate class.</td>
+            </tr>
+          </table>
+        <h3>Actions</h3>
+        <p>None.</p>
+        <h3>Events</h3>
+        <p>None.</p>
+      </section>
+      <section id="BarometricPressureSensor">
+        <h2>BarometricPressureSensor</h2>
+        <p>A device which can measure the barometric pressure.</p>
+        <h3>Properties</h3>
+          <table>
+            <tr>
+              <th>Type</th>
+              <th>Read-Only</th>
+              <th>Required</th>
+            </tr>
+            <tr>
+              <td><a href="#BarometricPressureProperty">BarometricPressureProperty</a></td>
+              <td>Yes</td>
+              <td>Yes</td>
+            </tr>
           </table>
         <h3>Actions</h3>
         <p>None.</p>
@@ -860,6 +885,19 @@
             <td>boolean</td>
           </tr>
         </table>
+      </section>
+      <section id="BarometricPressureProperty">
+        <h2>BarometricPressureProperty</h2>
+        <table>
+          <tr>
+            <th>type</th>
+            <td>number/integer</td>
+          </tr>
+          <tr>
+            <th>unit</th>
+            <td>hectopascal</td>
+          </tr>
+        </table>
       </section>      
       <section id="BooleanProperty">
         <h2>BooleanProperty</h2>
@@ -1002,6 +1040,27 @@
           <tr>
             <th>enum</th>
             <td>["off", "heating", "cooling"]</td>
+          </tr>
+        </table>
+      </section>
+      <section id="HumidityProperty">
+        <h2>HumidityProperty</h2>
+        <table>
+          <tr>
+            <th>type</th>
+            <td>number/integer</td>
+          </tr>
+          <tr>
+            <th>minimum</th>
+            <td>0</td>
+          </tr>
+          <tr>
+            <th>maximum</th>
+            <td>100</td>
+          </tr>
+          <tr>
+            <th>unit</th>
+            <td>percent</td>
           </tr>
         </table>
       </section>
