@@ -106,6 +106,7 @@
       <li><strong><a href="#capabilities">Capabilities</a></strong></li>
       <ul>
         <li><a href="#Alarm">Alarm</a></li>
+        <li><a href="#AirQualitySensor">AirQualitySensor</a></li>
         <li><a href="#BarometricPressureSensor">BarometricPressureSensor</a></li>
         <li><a href="#BinarySensor">BinarySensor</a></li>
         <li><a href="#Camera">Camera</a></li>  
@@ -123,6 +124,7 @@
         <li><a href="#OnOffSwitch">OnOffSwitch</a></li>
         <li><a href="#PushButton">PushButton</a></li>
         <li><a href="#SmartPlug">SmartPlug</a></li>
+        <li><a href="#SmokeSensor">SmokeSensor</a>
         <li><a href="#TemperatureSensor">TemperatureSensor</a></li>
         <li><a href="#Thermostat">Thermostat</a></li>
         <li><a href="#VideoCamera">VideoCamera</a></li>
@@ -136,11 +138,14 @@
         <li><a href="#ColorModeProperty">ColorModeProperty</a></li>
         <li><a href="#ColorProperty">ColorProperty</a></li>
         <li><a href="#ColorTemperatureProperty">ColorTemperatureProperty</a></li>
+        <li><a href="#ConcentrationProperty">ConcentrationProperty</a></li>
         <li><a href="#CurrentProperty">CurrentProperty</a></li>
+        <li><a href="#DensityProperty">DensityProperty</a></li>
         <li><a href="#FrequencyProperty">FrequencyProperty</a></li>
         <li><a href="#HeatingCoolingProperty">HeatingCoolingProperty</a></li>
         <li><a href="#HumidityProperty">HumidityProperty</a></li>
         <li><a href="#ImageProperty">ImageProperty</a></li>
+        <li><a href="#InstantaneousPowerFactorProperty">InstantaneousPowerFactorProperty</a></li>
         <li><a href="#InstantaneousPowerProperty">InstantaneousPowerProperty</a></li>
         <li><a href="#LeakProperty">LeakProperty</a></li>
         <li><a href="#LevelProperty">LevelProperty</a></li>
@@ -149,6 +154,7 @@
         <li><a href="#OnOffProperty">OnOffProperty</a></li>
         <li><a href="#OpenProperty">OpenProperty</a></li>
         <li><a href="#PushedProperty">PushedProperty</a></li>
+        <li><a href="#SmokeProperty">SmokeProperty</a></li>
         <li><a href="#TargetTemperatureProperty">TargetTemperatureProperty</a></li>
         <li><a href="#TemperatureProperty">TemperatureProperty</a></li>
         <li><a href="#ThermostatModeProperty">ThermostatModeProperty</a></li>
@@ -203,6 +209,37 @@
             <td>Yes</td>
           </tr>
         </table>
+      </section>
+      <section id="AirQualitySensor">
+        <h2>AirQualitySensor</h2>
+        <p>Capability to monitor air quality. Usually monitors the concentration of harmful gases
+          (such as CO2, CO or VOCs) together with PM2.5, PM10 dust particulates.
+        </p>
+        <h3>Properties</h3>
+          <table>
+            <tr>
+              <th>Type</th>
+              <th>Read-Only</th>
+              <th>Required</th>
+              <th>Notes</th>
+            </tr>
+            <tr>
+              <td><a href="#ConcentrationProperty">ConcentrationProperty</a></td>
+              <td>Yes</td>
+              <td>Yes</td>
+              <td>At least one ConcentrationProperty or DensityProperty should be defined, with a separate property for each sensed gas or particulate class.</td>
+            </tr>
+            <tr>
+              <td><a href="#DensityProperty">DensityProperty</a></td>
+              <td>Yes</td>
+              <td>Yes</td>
+              <td>At least one ConcentrationProperty or DensityProperty should be defined, with a separate property for each sensed gas or particulate class.</td>
+            </tr>
+          </table>
+        <h3>Actions</h3>
+        <p>None.</p>
+        <h3>Events</h3>
+        <p>None.</p>
       </section>
       <section id="BarometricPressureSensor">
         <h2>BarometricPressureSensor</h2>
@@ -358,6 +395,11 @@
               <td>Yes</td>
             </tr>
             <tr>
+              <td><a href="#InstantaneousPowerFactorProperty">InstantaneousPowerFactorProperty</a></td>
+              <td>Yes</td>
+              <td>No</td>
+            </tr>
+            <tr>
               <td><a href="#VoltageProperty">VoltageProperty</a></td>
               <td>Yes</td>
               <td>No</td>
@@ -401,7 +443,7 @@
       </section>
       <section id="LeakSensor">
         <h2>LeakSensor</h2>
-        <p>A device which detects whether a water leak has occurred.</p>
+        <p>A device which detects whether a water or gas leak has occurred.</p>
         <h3>Properties</h3>
           <table>
             <tr>
@@ -419,7 +461,7 @@
         <p>None.</p>
         <h3>Events</h3>
         <p>None.</p>
-      </section>      
+      </section>
       <section id="Light">
         <h2>Light</h2>
         <p>A device which emits light, can be turned on and off and optionally
@@ -689,6 +731,11 @@
               <td>No</td>
             </tr>
             <tr>
+              <td><a href="#InstantaneousPowerFactorProperty">InstantaneousPowerFactorProperty</a></td>
+              <td>Yes</td>
+              <td>No</td>
+            </tr>
+            <tr>
               <td><a href="#VoltageProperty">VoltageProperty</a></td>
               <td>Yes</td>
               <td>No</td>
@@ -719,6 +766,27 @@
             <td>No</td>
           </tr>
         </table>
+        <h3>Events</h3>
+        <p>None.</p>
+      </section>
+      <section id="SmokeSensor">
+        <h2>SmokeSensor</h2>
+        <p>A device which detects smoke as part of a fire alarm system.</p>
+        <h3>Properties</h3>
+          <table>
+            <tr>
+              <th>Type</th>
+              <th>Read-Only</th>
+              <th>Required</th>
+            </tr>
+            <tr>
+              <td><a href="#SmokeProperty">SmokeProperty</a></td>
+              <td>Yes</td>
+              <td>Yes</td>
+            </tr>
+          </table>
+        <h3>Actions</h3>
+        <p>None.</p>
         <h3>Events</h3>
         <p>None.</p>
       </section>
@@ -897,6 +965,25 @@
           </tr>
         </table>
       </section>
+      <section id="ConcentrationProperty">
+        <h2>ConcentrationProperty</h2>
+        <p>A concentration of a gas or other volatile (like dust particulates). Used in air quality sensors.
+        </p>
+        <table>
+          <tr>
+            <th>type</th>
+            <td>number</td>
+          </tr>
+          <tr>
+            <th>minimum</th>
+            <td>0</td>
+          </tr>
+          <tr>
+            <th>unit</th>
+            <td>ppm</td>
+          </tr>
+        </table>
+      </section>
       <section id="CurrentProperty">
         <h2>CurrentProperty</h2>
         <table>
@@ -910,6 +997,25 @@
           </tr>
         </table>
       </section>
+      <section id="DensityProperty">
+          <h2>DensityProperty</h2>
+          <p>A density of a gas or other volatile (like dust particulates). Used in air quality sensors.
+          </p>
+          <table>
+            <tr>
+              <th>type</th>
+              <td>number</td>
+            </tr>
+            <tr>
+              <th>minimum</th>
+              <td>0</td>
+            </tr>
+            <tr>
+              <th>unit</th>
+              <td>micrograms/m3</td>
+            </tr>
+          </table>
+        </section>
       <section id="FrequencyProperty">
         <h2>FrequencyProperty</h2>
         <table>
@@ -968,8 +1074,27 @@
         </table>
         <p><strong>Note:</strong> The primitive <code>type</code> of an <code>ImageProperty</code> is <code>null</code> or <code>undefined</code> (omitted), but it must provide a <code>mediaType</code> in one or more <a href="https://iot.mozilla.org/wot/#link-object">link relations</a> which link to binary representations of the image property resource.</p>
       </section>
+      <section id="InstantaneousPowerFactorProperty">
+        <h2>InstantaneousPowerFactorProperty</h2>
+        <p>The <a href="https://en.wikipedia.org/wiki/Power_factor">Power Factor</a> describes the relationship between active and reactive power used by the circuit.</p>
+        <table>
+          <tr>
+            <th>type</th>
+            <td>number</td>
+          </tr>
+          <tr>
+            <th>minimum</th>
+            <td>-1</td>
+          </tr>
+          <tr>
+            <th>maximum</th>
+            <td>1</td>
+          </tr>
+        </table>
+      </section>
       <section id="InstantaneousPowerProperty">
         <h2>InstantaneousPowerProperty</h2>
+        <p>This is the active or real power measurement (see <a href="https://en.wikipedia.org/wiki/AC_power#Real_power">Wikipedia</a>)</p>
         <table>
           <tr>
             <th>type</th>
@@ -1075,7 +1200,19 @@
               <td>boolean</td>
             </tr>
           </table>
-      </section>      
+      </section>
+      <section id="SmokeProperty">
+        <h2>SmokeProperty</h2>
+          <p>A <code>SmokeProperty</code> is like a <code>BooleanProperty</code>, but
+            with the added semantics that <code>true</code> means "smoke detected" and
+            <code>false</code> means "no smoke".</p>
+          <table>
+            <tr>
+              <th>type</th>
+              <td>boolean</td>
+            </tr>
+          </table>
+      </section>
       <section id="TargetTemperatureProperty">
         <h2>TargetTemperatureProperty</h2>
         <p>A <code>TargetTemperatureProperty</code> is like a <code>TemperatureProperty</code>, but defines a desired temperature rather than a current temperature.</p>
