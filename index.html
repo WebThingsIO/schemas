@@ -106,7 +106,7 @@
       <li><strong><a href="#capabilities">Capabilities</a></strong></li>
       <ul>
         <li><a href="#Alarm">Alarm</a></li>
-        <li><a href="#AirQualityMonitor">AirQualityMonitor</a></li>
+        <li><a href="#AirQualitySensor">AirQualitySensor</a></li>
         <li><a href="#BinarySensor">BinarySensor</a></li>
         <li><a href="#Camera">Camera</a></li>  
         <li><a href="#ColorControl">ColorControl</a></li>      
@@ -122,7 +122,7 @@
         <li><a href="#OnOffSwitch">OnOffSwitch</a></li>
         <li><a href="#PushButton">PushButton</a></li>
         <li><a href="#SmartPlug">SmartPlug</a></li>
-        <li><a href="#SmokeDetector">SmokeDetector</a>
+        <li><a href="#SmokeSensor">SmokeSensor</a>
         <li><a href="#TemperatureSensor">TemperatureSensor</a></li>
         <li><a href="#Thermostat">Thermostat</a></li>
         <li><a href="#VideoCamera">VideoCamera</a></li>
@@ -137,6 +137,7 @@
         <li><a href="#ColorTemperatureProperty">ColorTemperatureProperty</a></li>
         <li><a href="#ConcentrationProperty">ConcentrationProperty</a></li>
         <li><a href="#CurrentProperty">CurrentProperty</a></li>
+        <li><a href="#DensityProperty">DensityProperty</a></li>
         <li><a href="#FrequencyProperty">FrequencyProperty</a></li>
         <li><a href="#HeatingCoolingProperty">HeatingCoolingProperty</a></li>
         <li><a href="#ImageProperty">ImageProperty</a></li>
@@ -205,8 +206,8 @@
           </tr>
         </table>
       </section>
-      <section id="AirQualityMonitor">
-        <h2>AirQualityMonitor</h2>
+      <section id="AirQualitySensor">
+        <h2>AirQualitySensor</h2>
         <p>Capability to monitor air quality. Usually monitors the concentration of harmful gases
           (such as CO2, CO or VOCs) together with PM2.5, PM10 dust particulates.
         </p>
@@ -222,8 +223,14 @@
               <td><a href="#ConcentrationProperty">ConcentrationProperty</a></td>
               <td>Yes</td>
               <td>Yes</td>
-              <td>At least one should be defined, separate property for each sensed gas or particulate class.</td>
+              <td>At least one ConcentrationProperty or DensityProperty should be defined, separate property for each sensed gas or particulate class.</td>
             </tr>
+            <tr>
+                <td><a href="#DensityProperty">DensityProperty</a></td>
+                <td>Yes</td>
+                <td>Yes</td>
+                <td>At least one ConcentrationProperty or DensityProperty should be defined, separate property for each sensed gas or particulate class.</td>
+              </tr>
           </table>
         <h3>Actions</h3>
         <p>None.</p>
@@ -381,6 +388,27 @@
               <td><a href="#FrequencyProperty">FrequencyProperty</a></td>
               <td>Yes</td>
               <td>No</td>
+            </tr>
+          </table>
+        <h3>Actions</h3>
+        <p>None.</p>
+        <h3>Events</h3>
+        <p>None.</p>
+      </section>
+      <section id="HumiditySensor">
+        <h2>HumiditySensor</h2>
+        <p>Capability to monitor the current humidity.</p>
+        <h3>Properties</h3>
+          <table>
+            <tr>
+              <th>Type</th>
+              <th>Read-Only</th>
+              <th>Required</th>
+            </tr>
+            <tr>
+              <td><a href="#HumidityProperty">HumidityProperty</a></td>
+              <td>Yes</td>
+              <td>Yes</td>
             </tr>
           </table>
         <h3>Actions</h3>
@@ -716,8 +744,8 @@
         <h3>Events</h3>
         <p>None.</p>
       </section>
-      <section id="SmokeDetector">
-        <h2>SmokeDetector</h2>
+      <section id="SmokeSensor">
+        <h2>SmokeSensor</h2>
         <p>A device which detects smoke as part of a fire alarm system.</p>
         <h3>Properties</h3>
           <table>
@@ -931,6 +959,25 @@
           </tr>
         </table>
       </section>
+      <section id="DensityProperty">
+          <h2>DensityProperty</h2>
+          <p>A density of a gas or other volatile (like dust particulates). Used in air quality sensors.
+          </p>
+          <table>
+            <tr>
+              <th>type</th>
+              <td>number</td>
+            </tr>
+            <tr>
+              <th>minimum</th>
+              <td>0</td>
+            </tr>
+            <tr>
+              <th>unit</th>
+              <td>micrograms/m3</td>
+            </tr>
+          </table>
+        </section>
       <section id="FrequencyProperty">
         <h2>FrequencyProperty</h2>
         <table>
