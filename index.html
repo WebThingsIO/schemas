@@ -2,26 +2,26 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>WoT Capability Schemas - Mozilla IoT</title>
-    <link rel="icon" href="images/icon.png" type="image/png" />
+    <title>WoT Capability Schemas - WebThings</title>
+    <link rel="icon" href="images/icon.svg" />
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <link rel="stylesheet" type="text/css" href="css/prism.css" />
     <script src="js/prism.js"></script>
   </head>
   <body>
-    <img id="wordmark" src="images/wordmark.svg" alt="Mozilla IoT" />
+    <img id="wordmark" src="images/wordmark.svg" alt="WebThings" />
     <h1 class="title">WoT Capability Schemas</h1>
-    <h2 class="subtitle">iot.mozilla.org/schemas</h2>
+    <h2 class="subtitle">webthings.io/schemas</h2>
     <h1 id="introduction">Introduction</h1>
     <p>This web page describes a repository of Web of Things capability schemas
-      to be used as optional semantic markup in <a href="https://iot.mozilla.org/wot/#web-thing-description">
+      to be used as optional semantic markup in <a href="https://webthings.io/api/#web-thing-description">
       Web Thing Descriptions</a>.</p>
-    <p>To use a schema from this repository, a Thing Description must define a <code>@context</code> of "https://iot.mozilla.org/schemas", define one or more device capability types as a
+    <p>To use a schema from this repository, a Thing Description must define a <code>@context</code> of "https://webthings.io/schemas", define one or more device capability types as a
     top level <code>@type</code> array and define at least the required properties, actions and
      events for those capabilities with an appropriate <code>@type</code> annotation.</p>
       <h2>Example</h2>
       <pre><code class="language-json">{
-  "@context": "https://iot.mozilla.org/schemas/",
+  "@context": "https://webthings.io/schemas/",
   "@type": ["Light", "OnOffSwitch"],
   "id": "https://mywebthingserver.com/things/lamp",
   "title":"My Lamp",
@@ -1072,7 +1072,7 @@
             <td>null/undefined</td>
           </tr>
         </table>
-        <p><strong>Note:</strong> The primitive <code>type</code> of an <code>ImageProperty</code> is <code>null</code> or <code>undefined</code> (omitted), but it must provide a <code>mediaType</code> in one or more <a href="https://iot.mozilla.org/wot/#link-object">link relations</a> which link to binary representations of the image property resource.</p>
+        <p><strong>Note:</strong> The primitive <code>type</code> of an <code>ImageProperty</code> is <code>null</code> or <code>undefined</code> (omitted), but it must provide a <code>mediaType</code> in one or more <a href="https://webthings.io/api/#link-object">link relations</a> which link to binary representations of the image property resource.</p>
       </section>
       <section id="InstantaneousPowerFactorProperty">
         <h2>InstantaneousPowerFactorProperty</h2>
@@ -1262,7 +1262,7 @@
             <td>null/undefined</td>
           </tr>
         </table>
-        <p><strong>Note:</strong> The primitive <code>type</code> of a <code>VideoProperty</code> is <code>null</code> or <code>undefined</code> (omitted), but it must provide a <code>mediaType</code> in one or more <a href="https://iot.mozilla.org/wot/#link-object">link relations</a> which link to binary representations of the video property resource.</p>
+        <p><strong>Note:</strong> The primitive <code>type</code> of a <code>VideoProperty</code> is <code>null</code> or <code>undefined</code> (omitted), but it must provide a <code>mediaType</code> in one or more <a href="https://webthings.io/api/#link-object">link relations</a> which link to binary representations of the video property resource.</p>
       </section>
       <section id="VoltageProperty">
         <h2>VoltageProperty</h2>
