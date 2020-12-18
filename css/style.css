@@ -7,8 +7,23 @@ body {
   margin: 3rem;
 }
 
+#transition {
+  background-color: #000;
+  color: #fff;
+  text-align: center;
+  font-size: 1.4rem;
+  padding: 1rem;
+  margin: -3rem;
+}
+
+#transition a {
+  color: #fff;
+  text-decoration: underline;
+}
+
 #wordmark {
   height: 5rem;
+  margin-top: 5rem;
 }
 
 .title {
