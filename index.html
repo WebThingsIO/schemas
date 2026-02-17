@@ -121,6 +121,7 @@
         <li><a href="#MotionSensor">MotionSensor</a></li>
         <li><a href="#MultiLevelSensor">MultiLevelSensor</a></li>
         <li><a href="#MultiLevelSwitch">MultiLevelSwitch</a></li>
+        <li><a href="#OccupancySensor">OccupancySensor</a></li>
         <li><a href="#OnOffSwitch">OnOffSwitch</a></li>
         <li><a href="#PushButton">PushButton</a></li>
         <li><a href="#SmartPlug">SmartPlug</a></li>
@@ -151,6 +152,7 @@
         <li><a href="#LevelProperty">LevelProperty</a></li>
         <li><a href="#LockedProperty">LockedProperty</a></li>
         <li><a href="#MotionProperty">MotionProperty</a></li>
+        <li><a href="#OccupiedProperty">OccupiedProperty</a></li>
         <li><a href="#OnOffProperty">OnOffProperty</a></li>
         <li><a href="#OpenProperty">OpenProperty</a></li>
         <li><a href="#PushedProperty">PushedProperty</a></li>
@@ -634,6 +636,27 @@
             <td>No</td>
           </tr>
         </table>
+        <h3>Events</h3>
+        <p>None.</p>
+      </section>
+      <section id="OccupancySensor">
+        <h2>OccupancySensor</h2>
+        <p>A device which detects whether a room is occupied.</p>
+        <h3>Properties</h3>
+          <table>
+            <tr>
+              <th>Type</th>
+              <th>Read-Only</th>
+              <th>Required</th>
+            </tr>
+            <tr>
+              <td><a href="#OccupiedProperty">OccupiedProperty</a></td>
+              <td>Yes</td>
+              <td>Yes</td>
+            </tr>
+          </table>
+        <h3>Actions</h3>
+        <p>None.</p>
         <h3>Events</h3>
         <p>None.</p>
       </section>
@@ -1158,6 +1181,18 @@
           <p>A <code>MotionProperty</code> is like a <code>BooleanProperty</code>, but
             with the added semantics that <code>true</code> means "motion" and
             <code>false</code> means "no motion".</p>
+          <table>
+            <tr>
+              <th>type</th>
+              <td>boolean</td>
+            </tr>
+          </table>
+      </section>
+      <section id="OccupiedProperty">
+        <h2>OccupiedProperty</h2>
+          <p>A <code>OccupiedProperty</code> is like a <code>BooleanProperty</code>, but
+            with the added semantics that <code>true</code> means "occupied" and
+            <code>false</code> means "not occupied".</p>
           <table>
             <tr>
               <th>type</th>
